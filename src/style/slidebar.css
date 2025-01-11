@@ -1,0 +1,73 @@
+.slidebar button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.slidebar {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  background: #000000;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+}
+
+.menu {
+  display: grid;
+  padding: 0 10px;
+}
+
+.menu button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  text-transform: capitalize;
+  line-height: 1;
+  padding: 0 10px;
+  border-radius: 8px;
+  color: #b8c2d8;
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+.menu button:hover {
+  opacity: 0.5;
+}
+
+.handle {
+  position: absolute;
+  z-index: 100;
+  width: 8px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  user-select: none;
+  transition: 0.9;
+}
+
+.handle:hover,
+.handle:active {
+  background: rgb(255 255 255/6%);
+  cursor: col-resize;
+}
+
+.sysName {
+  padding: 10px;
+}
+
+.sysName h1 {
+  font-size: 15px;
+  color: #b8c2d8;
+}
