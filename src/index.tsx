@@ -23,12 +23,14 @@ import { Practice } from "./practice/Practice";
 import { Sidebar } from "./components/Sidebar";
 import { HomeMain } from "./components/HomeMain";
 import SignInSignUp from "./components/Login";
+import AppRoutes from "./components/AppRoutes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <SignInSignUp />
+  <AppRoutes />
+
   // <HomeMain />
   // <Sidebar />
   // <Practice />

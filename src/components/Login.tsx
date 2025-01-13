@@ -1,12 +1,19 @@
 import React, { Fragment, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../style/login.css";
 
 const SignInSignUp = () => {
+  const navigate = useNavigate();
+  const handleHomeMain = () => {
+    navigate("/HomeMain");
+  };
+
   useEffect(() => {
     document.querySelector(".img__btn")?.addEventListener("click", () => {
       document.querySelector(".cont")?.classList.toggle("s--signup");
     });
   }, []);
+
   return (
     <Fragment>
       <div className="cont">
@@ -21,7 +28,7 @@ const SignInSignUp = () => {
             <input type="password" />
           </label>
           <p className="forgot-pass">Forgot password?</p>
-          <button type="button" className="submit">
+          <button type="button" className="submit" onClick={handleHomeMain}>
             Sign In
           </button>
           <button type="button" className="fb-btn">
@@ -59,7 +66,7 @@ const SignInSignUp = () => {
               <span>Password</span>
               <input type="password" />
             </label>
-            <button type="button" className="submit">
+            <button type="button" className="submit" onClick={handleHomeMain}>
               Sign Up
             </button>
             <button type="button" className="fb-btn">
