@@ -28,3 +28,11 @@ export type data = {
   readonly date: string;
   readonly benefits: string;
 };
+
+export type loginForm = {
+  usernameSignUp: string;
+  emailSignUp: string;
+  passwordSignUp: string;
+  emailSignIn: string;
+  passwordSignIn: string;
+};

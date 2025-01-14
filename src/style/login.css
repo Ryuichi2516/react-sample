@@ -240,3 +240,8 @@ input {
 .cont.s--signup .sign-up {
   transform: translate3d(0, 0, 0);
 }
+
+.errMessage {
+  text-align: center;
+  color: #ff0000;
+}
