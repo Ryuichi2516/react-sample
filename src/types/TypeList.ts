@@ -1,23 +1,23 @@
 import { Property } from "csstype";
 
-export type tableValue<T> = {
-  readonly headers: header[];
-  readonly footers: footer[] | null;
+export type TableValue<T> = {
+  readonly headers: Header[];
+  readonly footers: Footer[] | null;
   readonly values?: T[];
 };
-export type header = {
+export type Header = {
   readonly name: string;
   readonly width: string;
   readonly isSum: boolean;
   readonly position: Property.TextAlign;
 };
-export type footer = {
+export type Footer = {
   readonly colSpan: number;
   readonly name?: string;
   readonly isSum: boolean;
   readonly position?: Property.TextAlign;
 };
-export type data = {
+export type Data = {
   readonly code: string;
   readonly name: string;
   readonly stock: string;
@@ -29,10 +29,13 @@ export type data = {
   readonly benefits: string;
 };
 
-export type loginForm = {
+export type LoginFormSignIn = {
+  emailSignIn: string;
+  passwordSignIn: string;
+};
+
+export type LoginFormSignUp = {
   usernameSignUp: string;
   emailSignUp: string;
   passwordSignUp: string;
-  emailSignIn: string;
-  passwordSignIn: string;
 };

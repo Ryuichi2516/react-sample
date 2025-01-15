@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useCallback, useDebugValue } from "react";
 import { Sidebar } from "./Sidebar";
 import { Table } from "./Table";
-import type { tableValue, data, header, footer } from "../types/TypeList";
+import type { TableValue, Data, Header, Footer } from "../types/TypeList";
 import "../style/homeMain.css";
 
 export const HomeMain = () => {
-  const headers: header[] = [
+  const headers: Header[] = [
     {
       name: "No.",
       width: "2",
@@ -68,7 +68,7 @@ export const HomeMain = () => {
     },
   ];
 
-  const footers: footer[] = [
+  const footers: Footer[] = [
     {
       colSpan: 3,
       name: "合計",
@@ -106,7 +106,7 @@ export const HomeMain = () => {
     },
   ];
 
-  let value: data = {
+  let value: Data = {
     code: "2340",
     name: "極楽湯ホールディングス",
     stock: "300",
@@ -118,13 +118,13 @@ export const HomeMain = () => {
     benefits: "100株以上で無料入浴券4枚",
   };
 
-  let values: data[] = [];
+  let values: Data[] = [];
 
   for (let i = 0; i <= 10; i++) {
     values.push(value);
   }
 
-  const tableValue: tableValue<data> = {
+  const tableValue: TableValue<Data> = {
     headers,
     footers,
     values,

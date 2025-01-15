@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from "react";
 import { Sidebar } from "./Sidebar";
-import type { tableValue } from "../types/TypeList";
+import type { TableValue } from "../types/TypeList";
 import "../style/table.css";
 
 export const Table = <T extends { [key: string]: string }>(
-  props: tableValue<T>
+  props: TableValue<T>
 ) => {
   const { headers, footers, values } = props;
 
