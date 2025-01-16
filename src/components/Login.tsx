@@ -5,11 +5,6 @@ import type { LoginFormSignIn, LoginFormSignUp } from "../types/TypeList";
 import "../style/login.css";
 
 const SignInSignUp = () => {
-  const navigate = useNavigate();
-  const handleHomeMain = () => {
-    navigate("/HomeMain");
-  };
-
   useEffect(() => {
     document.querySelector(".img__btn")?.addEventListener("click", () => {
       document.querySelector(".cont")?.classList.toggle("s--signup");
@@ -20,21 +15,26 @@ const SignInSignUp = () => {
     register: registerSignIn, // inputタグとバリデーションルールを紐付けるための関数
     handleSubmit: handleSubmitSignIn, // フォームのsubmitイベント時に呼ばれる関数
     formState: { errors: errorSignIn }, // バリデーションエラーの情報が格納
-  } = useForm<LoginFormSignIn>({ mode: "onChange" }); // mode: "onChange"で入力時バリデーション
+  } = useForm<LoginFormSignIn>({
+    mode: "onChange",
+  }); // mode: "onChange"で入力時バリデーション
 
   const {
     register: registerSignUp,
     handleSubmit: handleSubmitSignUp,
     formState: { errors: errorSignUp },
-  } = useForm<LoginFormSignUp>({ mode: "onChange" });
+  } = useForm<LoginFormSignUp>({
+    mode: "onChange",
+  });
 
-  const onSubmitSignIn = (data: LoginFormSignIn) => console.log(data);
-  const onSubmitSignUp = (data: LoginFormSignUp) => console.log(data);
+  const navigate = useNavigate();
+  const onSubmitSignIn = (data: LoginFormSignIn) => navigate("/HomeMain");
+  const onSubmitSignUp = (data: LoginFormSignUp) => navigate("/HomeMain");
 
   return (
     <Fragment>
       <div className="cont">
-        <form onSubmit={handleSubmitSignIn(onSubmitSignIn)}>
+        <form noValidate onSubmit={handleSubmitSignIn(onSubmitSignIn)}>
           <div className="form sign-in">
             <h2>サインイン</h2>
             <label>
@@ -88,7 +88,7 @@ const SignInSignUp = () => {
               <span className="m--in">Sign In</span>
             </div>
           </div>
-          <form onSubmit={handleSubmitSignUp(onSubmitSignUp)}>
+          <form noValidate onSubmit={handleSubmitSignUp(onSubmitSignUp)}>
             <div className="form sign-up">
               <h2>サインアップ</h2>
               <label>

@@ -6,7 +6,7 @@ import "../style/table.css";
 export const Table = <T extends { [key: string]: string }>(
   props: TableValue<T>
 ) => {
-  const { headers, footers, values } = props;
+  const { headers, footers, values, isDbclick } = props;
 
   useEffect(() => {
     let i: number = 0;
@@ -34,6 +34,10 @@ export const Table = <T extends { [key: string]: string }>(
     });
   });
 
+  const onDoubleClick = (e: React.MouseEvent<HTMLTableRowElement>): void => {
+    alert("Ryuichi");
+  };
+
   let index: number = 0;
   return (
     // Fragmentタグは表示されない。または<>空タグにする。return以降は1つのタグで囲われている必要がある
@@ -55,7 +59,7 @@ export const Table = <T extends { [key: string]: string }>(
           <tbody>
             {values?.map((e, i) => {
               return (
-                <tr>
+                <tr onDoubleClick={onDoubleClick}>
                   <th scope="row">{i + 1}</th>
                   {Object.values(e).map((value, ii) => {
                     const position = headers[ii + 1].position;

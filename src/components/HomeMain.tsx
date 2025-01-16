@@ -124,10 +124,12 @@ export const HomeMain = () => {
     values.push(value);
   }
 
+  const isDbclick = true;
   const tableValue: TableValue<Data> = {
     headers,
     footers,
     values,
+    isDbclick,
   };
 
   return (

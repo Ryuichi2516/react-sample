@@ -4,6 +4,7 @@ export type TableValue<T> = {
   readonly headers: Header[];
   readonly footers: Footer[] | null;
   readonly values?: T[];
+  readonly isDbclick?: boolean;
 };
 export type Header = {
   readonly name: string;
