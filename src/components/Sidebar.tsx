@@ -72,7 +72,7 @@ export const Sidebar = () => {
   return (
     <aside
       ref={sidebarRef}
-      style={{ width: `${width}px`, zIndex: 999 }}
+      style={{ width: `${width}px`, zIndex: 1 }}
       className="slidebar"
     >
       <div className="handle" onMouseDown={initResize}></div>

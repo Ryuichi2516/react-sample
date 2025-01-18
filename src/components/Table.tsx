@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { Sidebar } from "./Sidebar";
+import useModal from "./UseModal";
 import type { TableValue } from "../types/TypeList";
 import "../style/table.css";
 
@@ -7,6 +8,7 @@ export const Table = <T extends { [key: string]: string }>(
   props: TableValue<T>
 ) => {
   const { headers, footers, values, isDbclick } = props;
+  const { Modal, OpenModal, CloseModal } = useModal();
 
   useEffect(() => {
     let i: number = 0;
@@ -35,7 +37,7 @@ export const Table = <T extends { [key: string]: string }>(
   });
 
   const onDoubleClick = (e: React.MouseEvent<HTMLTableRowElement>): void => {
-    alert("Ryuichi");
+    OpenModal();
   };
 
   let index: number = 0;
@@ -43,6 +45,22 @@ export const Table = <T extends { [key: string]: string }>(
     // Fragmentタグは表示されない。または<>空タグにする。return以降は1つのタグで囲われている必要がある
     <Fragment>
       <Sidebar />
+      <Modal>
+        <div
+          style={{
+            backgroundColor: "white",
+            width: "300px",
+            height: "200px",
+            padding: "1em",
+            borderRadius: "15px",
+          }}
+        >
+          <h2>Content from Children</h2>
+          <button style={{ backgroundColor: "grey" }} onClick={CloseModal}>
+            Close
+          </button>
+        </div>
+      </Modal>
       <div id="mainTable">
         <table id="table01">
           <thead>
