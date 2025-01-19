@@ -1,14 +1,15 @@
 import React, { Fragment, useEffect } from "react";
 import { Sidebar } from "./Sidebar";
-import useModal from "./UseModal";
-import type { TableValue } from "../types/TypeList";
+import UseModal from "./UseModal";
+import EditStock from "./EditStock";
+import type { TableValue, EditStockData } from "../types/TypeList";
 import "../style/table.css";
 
 export const Table = <T extends { [key: string]: string }>(
   props: TableValue<T>
 ) => {
   const { headers, footers, values, isDbclick } = props;
-  const { Modal, OpenModal, CloseModal } = useModal();
+  const { Modal, OpenModal, OkModal, CloseModal } = UseModal();
 
   useEffect(() => {
     let i: number = 0;
@@ -40,26 +41,14 @@ export const Table = <T extends { [key: string]: string }>(
     OpenModal();
   };
 
+  const editStockData: EditStockData = { OkModal, CloseModal };
   let index: number = 0;
   return (
     // Fragmentタグは表示されない。または<>空タグにする。return以降は1つのタグで囲われている必要がある
     <Fragment>
       <Sidebar />
       <Modal>
-        <div
-          style={{
-            backgroundColor: "white",
-            width: "300px",
-            height: "200px",
-            padding: "1em",
-            borderRadius: "15px",
-          }}
-        >
-          <h2>Content from Children</h2>
-          <button style={{ backgroundColor: "grey" }} onClick={CloseModal}>
-            Close
-          </button>
-        </div>
+        <EditStock {...editStockData} />
       </Modal>
       <div id="mainTable">
         <table id="table01">

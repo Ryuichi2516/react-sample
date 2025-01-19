@@ -40,3 +40,8 @@ export type LoginFormSignUp = {
   emailSignUp: string;
   passwordSignUp: string;
 };
+
+export type EditStockData = {
+  readonly OkModal?: () => void;
+  readonly CloseModal?: () => void;
+};

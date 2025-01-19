@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useCallback, useDebugValue } from "react";
+import React, { Fragment } from "react";
 import { Sidebar } from "./Sidebar";
 import { Table } from "./Table";
 import type { TableValue, Data, Header, Footer } from "../types/TypeList";
